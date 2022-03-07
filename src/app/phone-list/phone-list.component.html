@@ -1,58 +1,52 @@
-<link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-rel="stylesheet"
-integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-crossorigin="anonymous"
-/>
+
 <main>
-   
-    <div>
-        <h2>Phone list:</h2>
-        <label for="search" >Search:</label>
-        <input type="search" id="search" name="search">
-        <label for="sort">Sort by:</label>
-        <input type="sort" id="sort" name="sort">
+    <div  class="col col-lg-2">
+    
+        <h2>{{ title }}:</h2>
+        <!-- <label class="label" for="search" >Search:</label> -->
+        
+        <input placeholder="Search" type="search"[(ngModel)]="term">
+        <!-- <label class="sort" for="sort">Sort by:</label> -->
+        <select class="sort" (change)="sortBy($event)" >
+            <option value="search" selected disabled hidden>Search by</option>
+            <option value="age">Newest</option>
+            <option value="name">Alphabetical</option>
+        </select>
     </div>
     
-
-    <div class="container ">
-
-        <div class="card " *ngFor="let item of productList">
+    <section class="phone-list">
     
-    
-    
-    
-            <div class="view overlay ">
-    
-                <a>
-    
-                    <img class="card-img-top " style="width: 10rem; " src="{{ 'assets/img/phones/' + item.id + '.0.jpg' }} ">
-    
-                </a>
-    
-                <div class="mask rgba-white-slight "></div>
-    
-    
-    
+        <div class="card mb-3" *ngFor="let phone of productsList | filter: term">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <figure class="photo">
+                        <img  height="150" width="140"
+                            src="{{ 'assets/' + phone.imageUrl }} "
+                            routerLink="{{ '/details/' + phone.id }}"
+                            >
+                    </figure>
+                </div>
             </div>
     
+
     
-    
-            <div class="card-body ">
-    
-                <h5 class="card-title">
-    
-                    {{ item.name }}</h5>
-    
-                <p class="card-text ">{{ item.snippet }}</p>
-    
+            <div class="col-md-8">
+                <div class="card-body ">
+                    <h5 class="card-title"
+                    routerLink="{{ '/details/' + phone.id }}">
+                        <a  routerLink="{{ '/details' + phone.id }}">{{ phone.name }}</a>
+                        
+                    </h5>
+                        
+                    
+                    <p class="card-text ">{{ phone.snippet }}</p>
+                </div>
             </div>
-    
-    
-    
         </div>
     
-    </div>
+    </section>
+    
+</main>
+    
+ 
 
-    <app-phone-detail></app-phone-detail>
-    </main>

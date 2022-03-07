@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient  } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Phones } from './phone';
 
 
@@ -8,10 +8,10 @@ import { Phones } from './phone';
   providedIn: 'root'
 })
 export class PhoneService {
-  productList: Phones[]= [];
-  phones: Phones[] = [];
+
   
   constructor(private http: HttpClient) { }
+  
   getAllProducts(): any {
     const products = this.http.get('assets/phones/phones.json');
     return products;

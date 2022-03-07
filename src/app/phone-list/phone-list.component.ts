@@ -10,20 +10,46 @@ import { Phones } from '../phone';
   
 })
 export class PhoneListComponent implements OnInit {
-    productList: Phones[] = [];
-    phones: Phones[] = [];
+    title = 'Phone list';
+    productsList!: any[];
+    phones!: Phones[];
+    term: string = '';
+    selectedSort: string = '';
+   
 
-  constructor(private phoneService: PhoneService) { 
+  constructor(public phoneService: PhoneService) { 
    
  }
 
   ngOnInit(): void {
-    this.phoneService.getAllProducts().subscribe((products : any)=>{
-      this.productList = products;
-      this.phones = products;
-      })
+    this.getProducts();
+  }
+
+  getProducts(): void {
+    this.phoneService.getAllProducts().subscribe(
+      (data: any[]) => {
+        this.productsList = data;
+      },
+      (error: any) => {
+        console.log('http-error:');
+        console.log(error);
+      }
+    );
+  }
   
+  sortBy(event: any) {
+    this.selectedSort = event.target.value;
+    if (this.selectedSort == 'name') {
+      this.productsList.sort(function (a, b) {
+       return a.name.localeCompare(b.name)
+      });
+    } else if (this.selectedSort == 'age') {
+      this.productsList.sort(function (a, b) {
+        return parseInt(a.age) - parseInt(b.age);
+      });
+    }
     
+  }
   
   }
      
@@ -31,4 +57,3 @@ export class PhoneListComponent implements OnInit {
     
   
 
-}

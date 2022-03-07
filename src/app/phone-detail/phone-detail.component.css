@@ -1,0 +1,55 @@
+ul li {
+    list-style-type: none;
+}
+
+img {
+    max-width: 100%;
+  }
+
+
+  article {
+      margin-bottom: 2rem;
+  }
+.phone-items {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.phones-small-photos {
+    display: flex;
+    flex-flow: row wrap;
+   
+}
+
+.phone-description {
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+}
+
+.show-photos {
+    width: 150px;
+    height: auto;
+    border: 1px solid black;
+    max-width: 100%;
+}
+
+.phone-info{
+    display: flex;
+}
+
+.battery {
+    margin-left: 3rem;
+}
+
+.storage {
+    margin-left: 3rem;
+}
+
+.connectivity {
+    margin-left: 3rem;
+}
+
+.btn {
+    margin: 2rem 0 2rem 7rem;
+   
+}

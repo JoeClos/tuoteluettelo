@@ -3,10 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PhoneListComponent } from './phone-list/phone-list.component';
-import { PhoneService } from './phone.service';
+import { FormsModule } from '@angular/forms';
 import { PhoneDetailComponent } from './phone-detail/phone-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import {CommonModule} from '@angular/common';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -17,9 +20,14 @@ import { PhoneDetailComponent } from './phone-detail/phone-detail.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    CommonModule,
+    FontAwesomeModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ],
-  providers: [PhoneService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

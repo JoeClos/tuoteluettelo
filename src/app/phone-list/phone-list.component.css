@@ -1,0 +1,45 @@
+main {
+    display: flex;
+    flex-flow: row nowrap;
+    
+    padding: 2rem;
+}
+
+h2 {
+    margin-bottom: 3rem;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    font-size: 150%;
+}
+
+.photo {
+    padding: 1rem;
+}
+.phones-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.card {
+    flex-direction: row;
+    
+}
+.card-title {
+    margin-top: 3rem;
+}
+.sort {
+    margin: 1rem 0;
+}
+
+/* .label {
+    margin-left: 5px;
+} */
+
+
